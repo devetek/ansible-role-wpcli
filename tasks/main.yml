@@ -1,0 +1,19 @@
+---
+- name: Check if WP-CLI exist
+  stat:
+    path: "{{ wpcli_bin_location }}"
+  register: wpcli_file
+
+- name: Install WP-CLI
+  get_url:
+    url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    dest: "{{ wpcli_bin_location }}"
+    mode: 0755
+  when: wpcli_file.stat.exists == false
+
+- name: Install WP-CLI tab completions
+  get_url:
+    url: https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash
+    dest: "{{ wpcli_completions_location }}"
+    mode: 0644
+  when: wpcli_file.stat.exists == false

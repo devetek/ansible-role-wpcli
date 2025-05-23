@@ -1,0 +1,28 @@
+galaxy_info:
+  role_name: wpcli
+  namespace: devetek
+  author: prakasa1904
+  description: Roles to install wordpress CLI
+  company: Devetek
+  license: license (GPL-2.0-or-later, MIT, etc)
+  min_ansible_version: "2.1"
+
+  platforms:
+  - name: Debian
+    versions:
+      - bookworm
+      - bullseye
+      - buster
+
+  - name: Ubuntu
+    versions:
+      - bionic
+      - jammy
+      - focal
+
+  galaxy_tags:
+    - wordpress
+    - cli
+    - wpcli
+
+dependencies: []
